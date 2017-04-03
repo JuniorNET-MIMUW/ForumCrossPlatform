@@ -10,11 +10,11 @@ using Xamarin.Forms;
 
 namespace Forum.Model
 {
-    class WebHandler
+    static class WebHandler
     {
-        private static readonly string ServerUri = "TODO WRITE SERVER URL";
+        private static readonly string ServerUri = "TODO WRITE SERVER URL"; //TODO add server uri
         
-        public async Task<List<string>> GetAllThreads()
+        public static async Task<List<string>> GetAllThreads()
         {
             using (var client = new HttpClient())
             {
@@ -29,7 +29,7 @@ namespace Forum.Model
             }
         }
 
-        public async Task<ThreadViewModel> GetThreadByName(string name)
+        public static async Task<ThreadViewModel> GetThreadByName(string name)
         {
             using (var client = new HttpClient())
             {
@@ -38,7 +38,7 @@ namespace Forum.Model
                 if (!httpResult.IsSuccessStatusCode)
                 {
                     var message = await httpResult.Content.ReadAsStringAsync();
-                    //TODO
+                    //TODO display error message
                 }
 
                 var contentString = await httpResult.Content.ReadAsStringAsync();
