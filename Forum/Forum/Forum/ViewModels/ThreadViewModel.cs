@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Forum.ViewModels
 {
-    class ThreadViewModel
+    public class ThreadViewModel
     {
         public string Name { get; set; }
 

@@ -4,5 +4,6 @@
              x:Class="Forum.Views.MainPage">
     
     <ListView ItemsSource="{Binding Threads}"
-              ItemSelected="ThreadSelected"/>
+              ItemSelected="ThreadSelected"
+              x:Name="ThreadsList"/>
 </ContentPage>

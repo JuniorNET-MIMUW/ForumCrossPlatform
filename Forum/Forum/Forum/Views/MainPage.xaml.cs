@@ -16,7 +16,9 @@ namespace Forum.Views
         public MainPage()
         {
             //var webHandler = new WebHandler();
-            Threads = WebHandler.GetAllThreads().Result;
+            var task = WebHandler.GetAllThreads();
+            task.Wait();
+            Threads = task.Result;
 
             InitializeComponent();
 
@@ -28,8 +30,9 @@ namespace Forum.Views
         private async void ThreadSelected(object sender, SelectedItemChangedEventArgs e)
         {
             //var webHandler = new WebHandler();
-            ThreadViewModel thread = await WebHandler.GetThreadByName(e.SelectedItem.ToString());
-            //TODO display view
+            ThreadsList.SelectedItem = null;
+            ThreadViewModel thread = await e.SelectedItem.ToString().GetThreadByName();
+            await Navigation.PushAsync(new ThreadPage(thread));
         }
     }
 }

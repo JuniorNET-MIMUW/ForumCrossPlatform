@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Forum.ViewModels
 {
-    class CommentViewModel
+    public class CommentViewModel
     {
         public string Author { get; set; }
 

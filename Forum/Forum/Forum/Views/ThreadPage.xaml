@@ -7,7 +7,16 @@
     <Label Text="{Binding Author}" FontSize="Small" />
     <Label Text="{Binding Message}" FontSize="Medium" HorizontalOptions="StartAndExpand" />
     
-    <!-- TODO add comment view-->
-    
-    
+    <ListView x:Name="Comments"
+              ItemsSource="{Binding Comments}"
+              ItemSelected="CommentSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Author}"
+                          Detail="{Binding Message}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+
 </ContentPage>

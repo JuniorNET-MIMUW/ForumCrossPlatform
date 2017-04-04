@@ -29,7 +29,7 @@ namespace Forum.Model
             }
         }
 
-        public static async Task<ThreadViewModel> GetThreadByName(string name)
+        public static async Task<ThreadViewModel> GetThreadByName(this string name)
         {
             using (var client = new HttpClient())
             {
